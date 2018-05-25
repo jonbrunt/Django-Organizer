@@ -4,7 +4,7 @@
 
 <ol>
   {% for bookmark in bookmarks %}
-  <li><a href="{{ bookmark.url }}">{{ bookmark.name }}</a></li>
+  <li><a href='{{ bookmark.url }}'>{{ bookmark.name }}</a></li>
   {% endfor %}
 </ol>
 
@@ -18,10 +18,18 @@ We have no bookmarks
 
 <ol>
   {% for bookmark in personal_bookmarks %}
-  <li><a href="{{ bookmark.url }}">{{ bookmark.name }}</a></li>
+  <li><a href='{{ bookmark.url }}'>{{ bookmark.name }}</a></li>
   {% endfor %}
 </ol>
 
 {% else %}
 We have no personal bookmarks
 {% endif %}
+
+<h2>New Bookmark</h2>
+
+<form method='POST' class='bookmark-form'>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type='submit' class='save btn btn-default'>Save</button>
+</form>

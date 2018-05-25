@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Bookmark, PersonalBookmark
+from .forms import BookmarkForm
 
 # Create your views here.
 #pylint: disable=E1101
@@ -19,5 +20,7 @@ def index(request):
     context['personal_bookmarks'] = PersonalBookmark.objects.none()
   else:
       context['personal_bookmarks'] = PersonalBookmark.objects.filter(user=request.user)
+
+  context['form'] = BookmarkForm
 
   return render(request, 'bookmarks/index.html', context)
