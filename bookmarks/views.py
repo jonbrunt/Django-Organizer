@@ -5,6 +5,14 @@ from .forms import BookmarkForm
 # Create your views here.
 #pylint: disable=E1101
 def index(request):
+
+  if request.method == 'POST':
+      form = BookmarkForm(request.POST)
+      if form.is_valid():
+        form.save()
+      else:
+        pass
+
   context = {}
 
   pbid = PersonalBookmark.objects.values_list('id')
