@@ -9,5 +9,5 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
     
 class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
-        serializer_class = NoteSerializer
-        queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+    queryset = Note.objects.all()
