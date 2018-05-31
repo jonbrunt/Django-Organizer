@@ -20,13 +20,15 @@ from django.views.generic import TemplateView
 from rest_framework import routers
 from notes.api import NoteViewSet
 
+from graphene_django.views import GraphQLView
+
 router = routers.DefaultRouter()
-# r is common Pythonism to make a literal regex search (in cases of backslashes, etc)
 router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
     path('', TemplateView.as_view(template_name='djorg_base.html')),
-    path('bookmarks/', include('bookmarks.urls')),
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('bookmarks/', include('bookmarks.urls')),
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
 ]

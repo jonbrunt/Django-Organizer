@@ -137,3 +137,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ]
 }
+
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema'
+}
