@@ -15,7 +15,7 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
     
 class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
-    # queryset = Note.objects.all()
+    queryset = Note.objects.all()
 
     def get_queryset(self):
         user = self.request.user
