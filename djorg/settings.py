@@ -131,6 +131,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #DJANGO REST framework
+
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         # Use Django's standard django.contrib.auth permission,
