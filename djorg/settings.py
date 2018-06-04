@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'bookmarks',
     'notes',
     'rest_framework',
+    'rest_framework.authtoken',
     'graphene_django',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -141,9 +142,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    )
-
-
+    ),
 }
 
 GRAPHENE = {
